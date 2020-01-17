@@ -55,7 +55,7 @@ export default function splitData() {
         case 'site':
         case 'ftpurl':
         case 'url':
-        case 'login url':
+        case 'loginurl':
           acc.website = insert(acc.website, val[1]);
           break;
         case 'username':
@@ -68,8 +68,8 @@ export default function splitData() {
         case 'login':
         case 'ftpuser':
         case 'accesskeyid':
-        case 'login user':
-        case 'login id':
+        case 'loginuser':
+        case 'loginid':
         case 'account':
         case 'drupaluser':
           acc.username = insert(acc.username, val[1]);
@@ -116,7 +116,7 @@ export default function splitData() {
           acc.encryption = insert(acc.encryption, val[1]);
           break;
         default:
-          acc.notes = insert(acc.notes, val[1]);
+          acc.notes = insert(acc.notes, `${val[0]}: ${val[1]}`);
           break;
       }
       return acc;
