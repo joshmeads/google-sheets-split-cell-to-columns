@@ -16,6 +16,7 @@ export default function splitData() {
   const cell = sheet.getActiveCell();
 
   const data = cell.getValue().split(', ');
+  cell.setValue('');
 
   const columns = {
     website: 'B',
@@ -141,4 +142,6 @@ export default function splitData() {
       cellToUpdate.setValue(value);
     }
   });
+
+  cell.offset(1, 0).activateAsCurrentCell();
 }
